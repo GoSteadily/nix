@@ -38,7 +38,7 @@ with lib;
       fileSystems = builtins.mapAttrs
         (mountPath: { device, ... }: {
           inherit device;
-          label = "data";
+          # label = "data";
           fsType = "ext4";
           autoResize = true;
           autoFormat = false; # Manually create the filesystem before deploying once
