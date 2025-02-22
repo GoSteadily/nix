@@ -157,6 +157,11 @@ cmp.setup {
 -- Load language servers and override on_attach.
 local nvim_lsp = require('lspconfig')
 
+nvim_lsp.gleam.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+
 nvim_lsp.rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities

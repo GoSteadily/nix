@@ -13,7 +13,7 @@ vim.opt.expandtab = true
 vim.opt.termguicolors = true
 vim.opt.background = 'dark'
 vim.cmd('colorscheme gruvbox')
-vim.g.rooter_patterns = {'.root', '.git', '.git/', 'shell.sh', 'shell.nix'}
+vim.g.rooter_patterns = {'.root', '.git', '.git/', 'shell.sh', 'flake.nix', 'devbox.json'}
 vim.g.rooter_silent_chdir = 1
 vim.cmd('syntax on')
 vim.cmd('filetype plugin indent on')
@@ -65,11 +65,31 @@ require'toggleterm'.setup({
   close_on_exit = true,
 })
 
+-- Git signs
 require'gitsigns'.setup({})
 local gs = package.loaded.gitsigns
-
--- Git signs
 vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<CR>', opts)
+
+-- tree-sitter
+-- Set parser_install_dir because the default dir tries to write to the
+-- nix store, which is a read-only directory.
+local parser_install_dir = vim.fn.stdpath("cache") .. "/treesitter"
+vim.fn.mkdir(parser_install_dir, "p")
+-- Prevents reinstall of treesitter plugins every boot
+vim.opt.runtimepath:append(parser_install_dir)
+
+require'nvim-treesitter.configs'.setup {
+  parser_install_dir = parser_install_dir,
+  ensure_installed = {},
+  sync_install = false,
+  auto_install = true,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
+
+require("nvim-treesitter.install").prefer_git = true
 
 -- Misc helpers
 vim.api.nvim_set_keymap('n', '<leader>f', ':set filetype=', { noremap = true })                        -- set filetype helper

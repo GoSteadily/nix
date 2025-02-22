@@ -24,42 +24,42 @@
 
   # Syntax highlighting
 
-  vimNix = fetchFromGitHub {
-    owner = "LnL7";
-    repo = "vim-nix";
-    rev = "7d23e97d13c40fcc6d603b291fe9b6e5f92516ee";
-    hash = "sha256-W6ExP+iDNo5T8XazxHRpUiECGv+AU5PPoM4CmU7NV+0=";
-  };
+  #vimNix = fetchFromGitHub {
+  #owner = "LnL7";
+  #repo = "vim-nix";
+  #rev = "7d23e97d13c40fcc6d603b291fe9b6e5f92516ee";
+  #hash = "sha256-W6ExP+iDNo5T8XazxHRpUiECGv+AU5PPoM4CmU7NV+0=";
+  #};
 
-  elmVim = fetchFromGitHub {
-    owner = "lambdatoast";
-    repo = "elm.vim";
-    rev = "04df290781f8a8a9a800e568262e0f2a077f503e";
-    hash = "sha256-F87XgjQU8/fZJSLORPsXQBq9G7kHnaxgBpE4A1Euf/I=";
-  };
+  #elmVim = fetchFromGitHub {
+  #owner = "lambdatoast";
+  #repo = "elm.vim";
+  #rev = "04df290781f8a8a9a800e568262e0f2a077f503e";
+  #hash = "sha256-F87XgjQU8/fZJSLORPsXQBq9G7kHnaxgBpE4A1Euf/I=";
+  #};
 
-  haskellVim = fetchFromGitHub {
-    owner = "neovimhaskell";
-    repo = "haskell-vim";
-    rev = "f35d02204b4813d1dbe8b0e98cc39701a4b8e15e";
-    hash = "sha256-4FvqwxaMu3Mznrmt4U5NZlmUAdUIiLpr9fW+kjdwcOA=";
-  };
+  #haskellVim = fetchFromGitHub {
+  #owner = "neovimhaskell";
+  #repo = "haskell-vim";
+  #rev = "f35d02204b4813d1dbe8b0e98cc39701a4b8e15e";
+  #hash = "sha256-4FvqwxaMu3Mznrmt4U5NZlmUAdUIiLpr9fW+kjdwcOA=";
+  #};
 
-  nvimTreesitter = fetchFromGitHub {
-    owner = "nvim-treesitter";
-    repo = "nvim-treesitter";
-    rev = "102f1b2f55575f0a2f18be92eafc0e7142024ad1";
-    hash = "sha256-qdlka79CSUWUkHSRNCpxXBnR1dcVu9UzxXutAJ+4LrE=";
-  };
+  #nvimTreesitter = fetchFromGitHub {
+  #owner = "nvim-treesitter";
+  #repo = "nvim-treesitter";
+  #rev = "d2ff4006418750aa8b91f280e66bdb623c891c95";
+  #hash = "sha256-7g7p3IuSAhU7N23awkYmtrr9bOUdGw7go+fTMuXogmM=";
+  #};
 
   # Formatting
 
-  formatterNvim = fetchFromGitHub {
-    owner = "mhartington";
-    repo = "formatter.nvim";
-    rev = "fa4f2729cc2909db599169f22d8e55632d4c8d59";
-    hash = "sha256-c3XEhHB31VKv7vStpTpaIxqHCNM+8I3UyPix89pLZ0M=";
-  };
+  #formatterNvim = fetchFromGitHub {
+  #owner = "mhartington";
+  #repo = "formatter.nvim";
+  #rev = "fa4f2729cc2909db599169f22d8e55632d4c8d59";
+  #hash = "sha256-c3XEhHB31VKv7vStpTpaIxqHCNM+8I3UyPix89pLZ0M=";
+  #};
 
   # Themes
 
