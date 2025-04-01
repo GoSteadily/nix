@@ -12,19 +12,16 @@ in
     example = literalExpression
       ''
       {
-        "www.qoda.fi" = "qoda.fi";
+        "www.gosteadily.com" = "gosteadily.com";
       }
       '';
   };
 
   config.services.nginx = {
-    enable = true;
     virtualHosts = mapAttrs'
       (from: to: {
         name = from;
         value = {
-          forceSSL = true;
-          enableACME = true;
           globalRedirect = to;
         };
       })

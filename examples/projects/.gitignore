@@ -1,9 +1,0 @@
-*.swp
-*.DS_Store
-artifacts/
-build/
-dist-newstyle/
-elm-stuff/
-node_modules/
-hie.yaml
-result
