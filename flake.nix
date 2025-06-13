@@ -19,15 +19,16 @@
     , rnix-lsp
     , ...
     }:
-    flake-utils.lib.eachDefaultSystem (system:
+    flake-utils.lib.eachDefaultSystem
+      (system:
       let
         pkgs = import nixpkgs { inherit system; };
 
-        mosh = pkgs.callPackage ./lib/packages/mosh {};
-        neovim = pkgs.callPackage ./lib/packages/neovim {};
-        ranger = pkgs.callPackage ./lib/packages/ranger {};
-        screen = pkgs.callPackage ./lib/packages/screen {};
-        tmux = pkgs.callPackage ./lib/packages/tmux {};
+        mosh = pkgs.callPackage ./packages/mosh { };
+        neovim = pkgs.callPackage ./packages/neovim { };
+        ranger = pkgs.callPackage ./packages/ranger { };
+        screen = pkgs.callPackage ./packages/screen { };
+        tmux = pkgs.callPackage ./packages/tmux { };
       in
       {
         packages = {
@@ -36,13 +37,7 @@
         };
 
         devShells.default = pkgs.mkShell {
-          packages = [
-            neovim
-            pkgs.fzf
-            pkgs.silver-searcher
-            ranger
-            self.packages.${system}.rnix-lsp
-          ];
+          packages = [ ];
 
           shellHook = ''
             # Load ~/.bashrc if it exists
@@ -53,14 +48,10 @@
 
             # Source .env file if present
             test -f "$PROJECT/.env" && source .env
-
-            # Ignore files specified in .gitignore when using fzf
-            # -t only searches text files and includes empty files
-            export FZF_DEFAULT_COMMAND="ag -tl"
           '';
         };
       }
-    ) //
+      ) //
     {
       nixosModules = {
         default = {
@@ -70,7 +61,6 @@
             self.nixosModules.secrets
             self.nixosModules.user
             self.nixosModules.volumes
-            self.nixosModules.digitalOcean
           ];
         };
 

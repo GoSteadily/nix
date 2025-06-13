@@ -8,18 +8,18 @@ let
       options = {
         description = mkOption {
           type = types.str;
-          example = literalExpression "Run the Qoda DApp server.";
+          example = literalExpression "Run my app server.";
         };
 
         domain = mkOption {
           type = types.str;
-          example = literalExpression "qoda.fi";
+          example = literalExpression "app.gosteadily.com";
         };
 
         aliases = mkOption {
           type = types.listOf types.str;
           default = [ ];
-          example = [ "alias0.qoda.fi" "alias1.qoda.fi" ];
+          example = [ "alias0.gosteadily.com" "alias1.gosteadily.com" ];
         };
 
         port = mkOption {
@@ -57,9 +57,9 @@ in
     example = literalExpression
       ''
         {
-          "qoda-dapp-server" = {
-            description = "Run the Qoda DApp server.";
-            domain = "qoda.fi";
+          "my-app-server" = {
+            description = "Run my app server.";
+            domain = "app.gosteadily.com";
             port = 3000;
             command = "/path/to/binary --arg1 --arg2=foo";
           };
